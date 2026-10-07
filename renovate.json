@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Repository-specific Renovate config. Extends the shared bcgov/renovate-config preset. Downstream repos should reference this file for consistent update management.",
+  "extends": [
+    "github>bcgov/renovate-config#2026.8.18"
+  ],
+  "pip-compile": {
+    "managerFilePatterns": [
+      "/(^|/)requirements\\.txt$/"
+    ]
+  },
+  "pip_requirements": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Regenerate npm lockfiles consistently",
+      "matchManagers": [
+        "npm"
+      ],
+      "postUpdateOptions": [
+        "npmInstallTwice"
+      ]
+    },
+    {
+      "matchPackageNames": [
+        "System.Linq.Dynamic.Core"
+      ],
+      "allowedVersions": ">=1.6.0 <2"
+    }
+  ],
+  "forkProcessing": "enabled"
+}
