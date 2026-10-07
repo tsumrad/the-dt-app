@@ -15,10 +15,18 @@
   "packageRules": [
     {
       "description": "Regenerate npm lockfiles consistently",
-      "matchManagers": ["npm"],
+      "matchManagers": [
+        "npm"
+      ],
       "postUpdateOptions": [
         "npmInstallTwice"
       ]
+    },
+    {
+      "matchPackageNames": [
+        "System.Linq.Dynamic.Core"
+      ],
+      "allowedVersions": ">=1.6.0 <2"
     }
-  ] 
+  ]
 }
